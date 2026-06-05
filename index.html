@@ -3,135 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的相簿網站</title>
+    <title>Photography Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
     <style>
-        /* 流水號排版 (Masonry / Columns) 的基本微調 */
+        body {
+            font-family: 'Inter', "Helvetica Neue", Arial, sans-serif;
+        }
+        /* Wix 範本經典高雅襯線體 */
+        .font-serif-title {
+            font-family: 'Playfair Display', 'Bodoni Moda', Georgia, serif;
+        }
+        /* 流水瀑布流 RWD 微調 */
         .masonry-grid {
             column-count: 1;
-            column-gap: 1rem;
+            column-gap: 1.5rem;
         }
         @media (min-width: 640px) { .masonry-grid { column-count: 2; } }
         @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
         .masonry-item {
             break-inside: avoid;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+<body class="bg-[#FCFBFA] text-[#2C2A29] antialiased tracking-wide">
 
-    <nav class="bg-white shadow-sm sticky top-0 z-40">
-        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-            <a href="#" onclick="showPage('home')" class="text-xl font-bold text-gray-900 tracking-wider">📷 我的相簿空間</a>
-            <button onclick="showPage('home')" id="back-btn" class="hidden text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-full transition">
-                ← 返回首頁
+    <nav class="border-b border-gray-200/80 bg-[#FCFBFA]/90 backdrop-blur-md sticky top-0 z-40 transition-all">
+        <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" onclick="showPage('home')" class="font-serif-title text-xl md:text-2xl font-medium tracking-widest uppercase text-[#1A1A1A]">
+                The Gallery.
+            </a>
+            <button onclick="showPage('home')" id="back-btn" class="hidden text-xs uppercase tracking-widest border border-gray-300 hover:border-gray-900 text-gray-600 hover:text-gray-900 px-5 py-2.5 rounded-none transition duration-300">
+                BACK TO INDEX
             </button>
         </div>
     </nav>
 
-    <main id="page-home" class="max-w-6xl mx-auto px-4 py-10">
-        <div class="text-center mb-12">
-            <h1 class="text-3xl md:text-4xl font-extrabold text-gray-950 mb-3">歡迎來到我的相片集</h1>
-            <p class="text-gray-500">請選擇下方的主題系列觀看照片</p>
+    <main id="page-home" class="max-w-5xl mx-auto px-6 py-16 md:py-24">
+        <div class="max-w-2xl mb-16 md:mb-24">
+            <h1 class="font-serif-title text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] font-normal leading-tight mb-6">
+                Stories through <br><span class="italic text-gray-500">light & lens.</span>
+            </h1>
+            <p class="text-sm text-gray-400 font-light max-w-md leading-relaxed tracking-wider uppercase">
+                A curated selection of visual explorations, capturing silent moments and geometric spaces.
+            </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div onclick="showPage('album-a')" class="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div class="h-48 bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-white text-4xl">🌌</div>
-                <div class="p-5">
-                    <h3 class="font-bold text-lg group-hover:text-indigo-600 transition">照片集 A：幻彩星空</h3>
-                    <p class="text-sm text-gray-400 mt-1">點擊進入觀賞流體與星空創作</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
+            <div onclick="showPage('album-a')" class="group cursor-pointer border border-gray-200/60 p-4 bg-white transition-all duration-500 hover:border-gray-400">
+                <div class="aspect-[4/3] bg-gray-100 overflow-hidden relative">
+                    <img src="https://picsum.photos/800/600?random=11" alt="Album A" class="w-full h-full object-cover grayscale-[30%] group-hover:scale-105 transition-transform duration-700 ease-out">
+                </div>
+                <div class="pt-5 pb-2 flex justify-between items-baseline">
+                    <h3 class="font-serif-title text-lg md:text-xl text-[#1A1A1A]">01 / 幻彩星空</h3>
+                    <span class="text-xs text-gray-400 tracking-widest uppercase group-hover:text-gray-900 transition">View Series →</span>
                 </div>
             </div>
 
-            <div onclick="showPage('album-b')" class="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div class="h-48 bg-gradient-to-tr from-emerald-500 to-teal-500 flex items-center justify-center text-white text-4xl">🌿</div>
-                <div class="p-5">
-                    <h3 class="font-bold text-lg group-hover:text-emerald-600 transition">照片集 B：自然微光</h3>
-                    <p class="text-sm text-gray-400 mt-1">捕捉森林與日光交織的瞬間</p>
+            <div onclick="showPage('album-b')" class="group cursor-pointer border border-gray-200/60 p-4 bg-white transition-all duration-500 hover:border-gray-400">
+                <div class="aspect-[4/3] bg-gray-100 overflow-hidden relative">
+                    <img src="https://picsum.photos/800/600?random=12" alt="Album B" class="w-full h-full object-cover grayscale-[30%] group-hover:scale-105 transition-transform duration-700 ease-out">
+                </div>
+                <div class="pt-5 pb-2 flex justify-between items-baseline">
+                    <h3 class="font-serif-title text-lg md:text-xl text-[#1A1A1A]">02 / 自然微光</h3>
+                    <span class="text-xs text-gray-400 tracking-widest uppercase group-hover:text-gray-900 transition">View Series →</span>
                 </div>
             </div>
 
-            <div onclick="showPage('album-c')" class="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div class="h-48 bg-gradient-to-tr from-amber-500 to-orange-500 flex items-center justify-center text-white text-4xl">🧱</div>
-                <div class="p-5">
-                    <h3 class="font-bold text-lg group-hover:text-amber-600 transition">照片集 C：城市幾何</h3>
-                    <p class="text-sm text-gray-400 mt-1">街頭建築與光影的結構美學</p>
+            <div onclick="showPage('album-c')" class="group cursor-pointer border border-gray-200/60 p-4 bg-white transition-all duration-500 hover:border-gray-400">
+                <div class="aspect-[4/3] bg-gray-100 overflow-hidden relative">
+                    <img src="https://picsum.photos/800/600?random=13" alt="Album C" class="w-full h-full object-cover grayscale-[30%] group-hover:scale-105 transition-transform duration-700 ease-out">
+                </div>
+                <div class="pt-5 pb-2 flex justify-between items-baseline">
+                    <h3 class="font-serif-title text-lg md:text-xl text-[#1A1A1A]">03 / 城市幾何</h3>
+                    <span class="text-xs text-gray-400 tracking-widest uppercase group-hover:text-gray-900 transition">View Series →</span>
                 </div>
             </div>
 
-            <div onclick="showPage('album-d')" class="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div class="h-48 bg-gradient-to-tr from-rose-500 to-pink-500 flex items-center justify-center text-white text-4xl">☕</div>
-                <div class="p-5">
-                    <h3 class="font-bold text-lg group-hover:text-rose-600 transition">照片集 D：日常一隅</h3>
-                    <p class="text-sm text-gray-400 mt-1">角落裡靜止的溫暖生活碎片</p>
+            <div onclick="showPage('album-d')" class="group cursor-pointer border border-gray-200/60 p-4 bg-white transition-all duration-500 hover:border-gray-400">
+                <div class="aspect-[4/3] bg-gray-100 overflow-hidden relative">
+                    <img src="https://picsum.photos/800/600?random=14" alt="Album D" class="w-full h-full object-cover grayscale-[30%] group-hover:scale-105 transition-transform duration-700 ease-out">
+                </div>
+                <div class="pt-5 pb-2 flex justify-between items-baseline">
+                    <h3 class="font-serif-title text-lg md:text-xl text-[#1A1A1A]">04 / 日常一隅</h3>
+                    <span class="text-xs text-gray-400 tracking-widest uppercase group-hover:text-gray-900 transition">View Series →</span>
                 </div>
             </div>
 
-            <div onclick="showPage('album-e')" class="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div class="h-48 bg-gradient-to-tr from-blue-500 to-cyan-500 flex items-center justify-center text-white text-4xl">🌊</div>
-                <div class="p-5">
-                    <h3 class="font-bold text-lg group-hover:text-blue-600 transition">照片集 E：深藍極致</h3>
-                    <p class="text-sm text-gray-400 mt-1">關於海洋與遠方地平線的紀錄</p>
+            <div onclick="showPage('album-e')" class="group cursor-pointer border border-gray-200/60 p-4 bg-white transition-all duration-500 hover:border-gray-400 md:col-span-2 md:max-w-xl md:mx-auto md:w-full">
+                <div class="aspect-[4/3] bg-gray-100 overflow-hidden relative">
+                    <img src="https://picsum.photos/800/600?random=15" alt="Album E" class="w-full h-full object-cover grayscale-[30%] group-hover:scale-105 transition-transform duration-700 ease-out">
+                </div>
+                <div class="pt-5 pb-2 flex justify-between items-baseline">
+                    <h3 class="font-serif-title text-lg md:text-xl text-[#1A1A1A]">05 / 深藍極致</h3>
+                    <span class="text-xs text-gray-400 tracking-widest uppercase group-hover:text-gray-900 transition">View Series →</span>
                 </div>
             </div>
         </div>
     </main>
 
-    <section id="page-album-a" class="hidden max-w-6xl mx-auto px-4 py-10">
-        <h2 class="text-2xl font-bold mb-6 text-gray-900 border-l-4 border-indigo-500 pl-3">照片集 A：幻彩星空</h2>
+    <section id="page-album-a" class="hidden max-w-5xl mx-auto px-6 py-16">
+        <div class="mb-12 border-b border-gray-200 pb-6">
+            <span class="text-xs tracking-widest text-gray-400 uppercase font-light">Collection 01</span>
+            <h2 class="font-serif-title text-3xl text-[#1A1A1A] mt-1">幻彩星空</h2>
+        </div>
         <div class="masonry-grid">
-            <div class="masonry-item"><img src="https://picsum.photos/600/800?random=1" alt="照片" class="w-full rounded-xl shadow-sm hover:opacity-90 transition cursor-zoom-in" onclick="openLightbox(this.src)"></div>
-            <div class="masonry-item"><img src="https://picsum.photos/600/400?random=2" alt="照片" class="w-full rounded-xl shadow-sm hover:opacity-90 transition cursor-zoom-in" onclick="openLightbox(this.src)"></div>
-            <div class="masonry-item"><img src="https://picsum.photos/600/700?random=3" alt="照片" class="w-full rounded-xl shadow-sm hover:opacity-90 transition cursor-zoom-in" onclick="openLightbox(this.src)"></div>
-            <div class="masonry-item"><img src="https://picsum.photos/600/500?random=4" alt="照片" class="w-full rounded-xl shadow-sm hover:opacity-90 transition cursor-zoom-in" onclick="openLightbox(this.src)"></div>
+            <div class="masonry-item border border-gray-200/40 p-2 bg-white"><img src="https://picsum.photos/600/800?random=1" alt="Photo" class="w-full opacity-95 hover:opacity-100 transition duration-300 cursor-zoom-in" onclick="openLightbox(this.src)"></div>
+            <div class="masonry-item border border-gray-200/40 p-2 bg-white"><img src="https://picsum.photos/600/400?random=2" alt="Photo" class="w-full opacity-95 hover:opacity-100 transition duration-300 cursor-zoom-in" onclick="openLightbox(this.src)"></div>
+            <div class="masonry-item border border-gray-200/40 p-2 bg-white"><img src="https://picsum.photos/600/700?random=3" alt="Photo" class="w-full opacity-95 hover:opacity-100 transition duration-300 cursor-zoom-in" onclick="openLightbox(this.src)"></div>
+            <div class="masonry-item border border-gray-200/40 p-2 bg-white"><img src="https://picsum.photos/600/500?random=4" alt="Photo" class="w-full opacity-95 hover:opacity-100 transition duration-300 cursor-zoom-in" onclick="openLightbox(this.src)"></div>
         </div>
     </section>
 
-    <section id="page-album-b" class="hidden max-w-6xl mx-auto px-4 py-10">
-        <h2 class="text-2xl font-bold mb-6 text-gray-900 border-l-4 border-emerald-500 pl-3">照片集 B：自然微光</h2>
+    <section id="page-album-b" class="hidden max-w-5xl mx-auto px-6 py-16">
+        <div class="mb-12 border-b border-gray-200 pb-6">
+            <span class="text-xs tracking-widest text-gray-400 uppercase font-light">Collection 02</span>
+            <h2 class="font-serif-title text-3xl text-[#1A1A1A] mt-1">自然微光</h2>
+        </div>
         <div class="masonry-grid">
-            <div class="masonry-item"><img src="https://picsum.photos/600/500?random=5" alt="照片" class="w-full rounded-xl shadow-sm hover:opacity-90 transition cursor-zoom-in" onclick="openLightbox(this.src)"></div>
-            <div class="masonry-item"><img src="https://picsum.photos/600/900?random=6" alt="照片" class="w-full rounded-xl shadow-sm hover:opacity-90 transition cursor-zoom-in" onclick="openLightbox(this.src)"></div>
-            <div class="masonry-item"><img src="https://picsum.photos/600/400?random=7" alt="照片" class="w-full rounded-xl shadow-sm hover:opacity-90 transition cursor-zoom-in" onclick="openLightbox(this.src)"></div>
+            <div class="masonry-item border border-gray-200/40 p-2 bg-white"><img src="https://picsum.photos/600/500?random=5" alt="Photo" class="w-full opacity-95 hover:opacity-100 transition duration-300 cursor-zoom-in" onclick="openLightbox(this.src)"></div>
+            <div class="masonry-item border border-gray-200/40 p-2 bg-white"><img src="https://picsum.photos/600/900?random=6" alt="Photo" class="w-full opacity-95 hover:opacity-100 transition duration-300 cursor-zoom-in" onclick="openLightbox(this.src)"></div>
+            <div class="masonry-item border border-gray-200/40 p-2 bg-white"><img src="https://picsum.photos/600/400?random=7" alt="Photo" class="w-full opacity-95 hover:opacity-100 transition duration-300 cursor-zoom-in" onclick="openLightbox(this.src)"></div>
         </div>
     </section>
 
-    <section id="page-album-c" class="hidden max-w-6xl mx-auto px-4 py-10">
-        <h2 class="text-2xl font-bold mb-6 text-gray-900 border-l-4 border-amber-500 pl-3">照片集 C：城市幾何</h2>
+    <section id="page-album-c" class="hidden max-w-5xl mx-auto px-6 py-16">
+        <div class="mb-12 border-b border-gray-200 pb-6">
+            <span class="text-xs tracking-widest text-gray-400 uppercase font-light">Collection 03</span>
+            <h2 class="font-serif-title text-3xl text-[#1A1A1A] mt-1">城市幾何</h2>
+        </div>
         <div class="masonry-grid">
-            <div class="masonry-item"><img src="https://picsum.photos/600/400?random=8" alt="照片" class="w-full rounded-xl shadow-sm hover:opacity-90 transition cursor-zoom-in" onclick="openLightbox(this.src)"></div>
-            <div class="masonry-item"><img src="https://picsum.photos/600/600?random=9" alt="照片" class="w-full rounded-xl shadow-sm hover:opacity-90 transition cursor-zoom-in" onclick="openLightbox(this.src)"></div>
-            <div class="masonry-item"><img src="https://picsum.photos/600/800?random=10" alt="照片" class="w-full rounded-xl shadow-sm hover:opacity-90 transition cursor-zoom-in" onclick="openLightbox(this.src)"></div>
+            <div class="masonry-item border border-gray-200/40 p-2 bg-white"><img src="https://picsum.photos/600/400?random=8" alt="Photo" class="w-full opacity-95 hover:opacity-100 transition duration-300 cursor-zoom-in" onclick="openLightbox(this.src)"></div>
+            <div class="masonry-item border border-gray-200/40 p-2 bg-white"><img src="https://picsum.photos/600/600?random=9" alt="Photo" class="w-full opacity-95 hover:opacity-100 transition duration-300 cursor-zoom-in" onclick="openLightbox(this.src)"></div>
+            <div class="masonry-item border border-gray-200/40 p-2 bg-white"><img src="https://picsum.photos/600/800?random=10" alt="Photo" class="w-full opacity-95 hover:opacity-100 transition duration-300 cursor-zoom-in" onclick="openLightbox(this.src)"></div>
         </div>
     </section>
 
-    <section id="page-album-d" class="hidden max-w-6xl mx-auto px-4 py-10">
-        <h2 class="text-2xl font-bold mb-6 text-gray-900 border-l-4 border-rose-500 pl-3">照片集 D：日常一隅</h2>
+    <section id="page-album-d" class="hidden max-w-5xl mx-auto px-6 py-16">
+        <div class="mb-12 border-b border-gray-200 pb-6">
+            <span class="text-xs tracking-widest text-gray-400 uppercase font-light">Collection 04</span>
+            <h2 class="font-serif-title text-3xl text-[#1A1A1A] mt-1">日常一隅</h2>
+        </div>
         <div class="masonry-grid">
-            <div class="masonry-item"><img src="https://picsum.photos/600/700?random=11" alt="照片" class="w-full rounded-xl shadow-sm hover:opacity-90 transition cursor-zoom-in" onclick="openLightbox(this.src)"></div>
-            <div class="masonry-item"><img src="https://picsum.photos/600/400?random=12" alt="照片" class="w-full rounded-xl shadow-sm hover:opacity-90 transition cursor-zoom-in" onclick="openLightbox(this.src)"></div>
+            <div class="masonry-item border border-gray-200/40 p-2 bg-white"><img src="https://picsum.photos/600/700?random=16" alt="Photo" class="w-full opacity-95 hover:opacity-100 transition duration-300 cursor-zoom-in" onclick="openLightbox(this.src)"></div>
+            <div class="masonry-item border border-gray-200/40 p-2 bg-white"><img src="https://picsum.photos/600/400?random=17" alt="Photo" class="w-full opacity-95 hover:opacity-100 transition duration-300 cursor-zoom-in" onclick="openLightbox(this.src)"></div>
         </div>
     </section>
 
-    <section id="page-album-e" class="hidden max-w-6xl mx-auto px-4 py-10">
-        <h2 class="text-2xl font-bold mb-6 text-gray-900 border-l-4 border-blue-500 pl-3">照片集 E：深藍極致</h2>
+    <section id="page-album-e" class="hidden max-w-5xl mx-auto px-6 py-16">
+        <div class="mb-12 border-b border-gray-200 pb-6">
+            <span class="text-xs tracking-widest text-gray-400 uppercase font-light">Collection 05</span>
+            <h2 class="font-serif-title text-3xl text-[#1A1A1A] mt-1">深藍極致</h2>
+        </div>
         <div class="masonry-grid">
-            <div class="masonry-item"><img src="https://picsum.photos/600/500?random=13" alt="照片" class="w-full rounded-xl shadow-sm hover:opacity-90 transition cursor-zoom-in" onclick="openLightbox(this.src)"></div>
-            <div class="masonry-item"><img src="https://picsum.photos/600/500?random=14" alt="照片" class="w-full rounded-xl shadow-sm hover:opacity-90 transition cursor-zoom-in" onclick="openLightbox(this.src)"></div>
+            <div class="masonry-item border border-gray-200/40 p-2 bg-white"><img src="https://picsum.photos/600/500?random=18" alt="Photo" class="w-full opacity-95 hover:opacity-100 transition duration-300 cursor-zoom-in" onclick="openLightbox(this.src)"></div>
+            <div class="masonry-item border border-gray-200/40 p-2 bg-white"><img src="https://picsum.photos/600/500?random=19" alt="Photo" class="w-full opacity-95 hover:opacity-100 transition duration-300 cursor-zoom-in" onclick="openLightbox(this.src)"></div>
         </div>
     </section>
 
-    <div id="lightbox" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 backdrop-blur-sm transition-opacity duration-300" onclick="closeLightbox()">
-        <button class="absolute top-6 right-6 text-white text-3xl font-light hover:text-gray-300">&times;</button>
-        <img id="lightbox-img" src="" alt="放大照片" class="max-w-full max-h-[90vh] object-contain rounded shadow-2xl transform scale-95 transition-transform duration-300">
+    <div id="lightbox" class="hidden fixed inset-0 bg-[#FCFBFA]/98 z-50 flex items-center justify-center p-4 md:p-10 backdrop-blur-md transition-opacity duration-300" onclick="closeLightbox()">
+        <button class="absolute top-6 right-8 text-[#1A1A1A] text-4xl font-light hover:text-gray-500 transition">&times;</button>
+        <img id="lightbox-img" src="" alt="Enlarged" class="max-w-full max-h-[85vh] object-contain border border-gray-200 p-2 bg-white shadow-xl transform scale-95 transition-transform duration-300">
     </div>
 
     <script>
-        // 1. 分頁切換控制邏輯
         function showPage(pageId) {
-            // 隱藏所有分頁區塊
             document.getElementById('page-home').classList.add('hidden');
             document.getElementById('page-album-a').classList.add('hidden');
             document.getElementById('page-album-b').classList.add('hidden');
@@ -139,23 +179,20 @@
             document.getElementById('page-album-d').classList.add('hidden');
             document.getElementById('page-album-e').classList.add('hidden');
 
-            // 顯示目標分頁
             const targetPage = document.getElementById(`page-${pageId}`);
             if(targetPage) {
                 targetPage.classList.remove('hidden');
             }
 
-            // 控制「返回首頁」按鈕是否顯示
             const backBtn = document.getElementById('back-btn');
             if (pageId === 'home') {
                 backBtn.classList.add('hidden');
             } else {
                 backBtn.classList.remove('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' }); // 切換時自動滾動回頂部
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
 
-        // 2. 照片放大燈箱 (Lightbox) 邏輯
         function openLightbox(imgSrc) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
@@ -163,7 +200,6 @@
             lightboxImg.src = imgSrc;
             lightbox.classList.remove('hidden');
             
-            // 讓放大動畫更平滑
             setTimeout(() => {
                 lightboxImg.classList.remove('scale-95');
                 lightboxImg.classList.add('scale-100');
