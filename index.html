@@ -487,7 +487,7 @@
             <span class="text-xs tracking-widest text-gray-400 uppercase font-light">Collection 06</span>
             <h2 class="font-serif-title text-3xl text-[#1A1A1A] mt-1">Travel A</h2>
         </div>
-<div id="travel-a-grid" class="masonry-container"></div>
+<div id="travel-a-grid" class="masonry-container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"></div>
         
     </section>
 
@@ -496,7 +496,7 @@
             <span class="text-xs tracking-widest text-gray-400 uppercase font-light">Collection 07</span>
             <h2 class="font-serif-title text-3xl text-[#1A1A1A] mt-1">Travel B</h2>
         </div>
-<div id="travel-b-grid" class="masonry-container"></div>
+<div id="travel-b-grid" class="masonry-container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"></div>
 
     </section>
 
@@ -505,7 +505,7 @@
             <span class="text-xs tracking-widest text-gray-400 uppercase font-light">Collection 08</span>
             <h2 class="font-serif-title text-3xl text-[#1A1A1A] mt-1">Travel C</h2>
         </div>
-<div id="travel-c-grid" class="masonry-container"></div>
+<div id="travel-c-grid" class="masonry-container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"></div>
     </section>
 
     <section id="page-album-i" class="hidden max-w-5xl mx-auto px-6 py-16">
@@ -513,7 +513,7 @@
             <span class="text-xs tracking-widest text-gray-400 uppercase font-light">Collection 09</span>
             <h2 class="font-serif-title text-3xl text-[#1A1A1A] mt-1">SHEN RONG FU A</h2>
         </div>
-<div id="shenrongfu-a-grid" class="masonry-container"></div>
+<div id="shenrongfu-a-grid" class="masonry-container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"></div>
     </section>
 
     <section id="page-album-j" class="hidden max-w-5xl mx-auto px-6 py-16">
@@ -521,7 +521,7 @@
             <span class="text-xs tracking-widest text-gray-400 uppercase font-light">Collection 10</span>
             <h2 class="font-serif-title text-3xl text-[#1A1A1A] mt-1">SHEN RONG FU B</h2>
         </div>
-<div id="shenrongfu-b-grid" class="masonry-container"></div>
+<div id="shenrongfu-b-grid" class="masonry-container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"></div>
     </section>
 
 
@@ -574,6 +574,11 @@
             document.getElementById('page-album-c').classList.add('hidden');
             document.getElementById('page-album-d').classList.add('hidden');
             document.getElementById('page-album-e').classList.add('hidden');
+                        document.getElementById('').classList.add('hidden');
+                        document.getElementById('page-album-g').classList.add('hidden');
+                        document.getElementById('page-album-h').classList.add('hidden');
+                        document.getElementById('page-album-i').classList.add('hidden');
+                        document.getElementById('page-album-j').classList.add('hidden');
 
             const targetPage = document.getElementById(`page-${pageId}`);
             if(targetPage) {
