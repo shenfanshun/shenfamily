@@ -39,7 +39,58 @@
     </style>
 </head>
 <body class="bg-[#FCFBFA] text-[#2C2A29] antialiased tracking-wide">
+<!-- 公告 Modal -->
+<div id="notice-modal" style="position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;z-index:9999;padding:1rem;">
+  <div style="background:#fff;border-radius:12px;max-width:520px;width:100%;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.18);">
 
+    <div style="padding:1.5rem 1.5rem 0;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:1.25rem;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span style="font-size:11px;letter-spacing:0.08em;color:#aaa;text-transform:uppercase;">Notice / 公告</span>
+      </div>
+
+      <div style="border-left:2px solid #ddd;padding-left:1rem;margin-bottom:1.25rem;">
+        <p style="font-size:15px;font-weight:500;color:#1a1a1a;margin:0 0 4px;">肖像權與版權聲明</p>
+        <p style="font-size:13px;color:#888;margin:0;">Portrait Rights & Copyright Notice</p>
+      </div>
+
+      <div style="font-size:13px;color:#555;line-height:1.85;margin-bottom:1rem;">
+        <p style="margin:0 0 0.75rem;">本網站所有照片均為家族私人珍藏，所有人物肖像之著作權及肖像權歸原著作人所有。未經授權，請勿以任何形式複製、散布、公開展示或商業利用。</p>
+        <p style="margin:0;color:#aaa;font-size:12px;line-height:1.75;">All photographs on this website are private family collections. All portrait rights and copyrights belong to the original authors. Reproduction, distribution, public display, or commercial use without authorization is strictly prohibited.</p>
+      </div>
+
+      <div style="background:#f7f7f5;border-radius:8px;padding:0.75rem 1rem;margin-bottom:1.25rem;">
+        <p style="font-size:12px;color:#555;margin:0 0 8px;font-weight:500;">本網站照片不得用於 / Photos must not be used for:</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;">
+          <span style="font-size:12px;color:#888;">· 商業用途 Commercial use</span>
+          <span style="font-size:12px;color:#888;">· 社群媒體轉載 Social sharing</span>
+          <span style="font-size:12px;color:#888;">· AI 訓練素材 AI training</span>
+          <span style="font-size:12px;color:#888;">· 未授權散布 Redistribution</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:0 1.5rem 1.5rem;">
+      <button onclick="closeNotice()" style="width:100%;padding:11px;font-size:14px;font-weight:500;background:#1a1a1a;color:#fff;border:none;border-radius:8px;cursor:pointer;letter-spacing:0.02em;">
+        我已了解並同意 &nbsp;/&nbsp; I Agree
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+function closeNotice() {
+  document.getElementById('notice-modal').style.display = 'none';
+  sessionStorage.setItem('notice-agreed', '1');
+}
+
+// 同一個瀏覽器 session 內只顯示一次
+if (sessionStorage.getItem('notice-agreed')) {
+  document.getElementById('notice-modal').style.display = 'none';
+}
+</script>
+
+    
     <nav class="border-b border-gray-200/80 bg-[#FCFBFA]/90 backdrop-blur-md sticky top-0 z-40 transition-all">
         <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="#" onclick="showPage('home')" class="font-serif-title text-xl md:text-2xl font-medium tracking-widest uppercase text-[#1A1A1A]">
